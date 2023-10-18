@@ -1,0 +1,22 @@
+export default {
+  transparent: 'transparent',
+  black: 'black',
+  white: 'white',
+  blackColor: '#292A2A',
+  whiteColor: '#E9E9E9',
+  editBGColor: '#363636',
+  blurBGColor: '#393939',
+  PrivacyColor: '#959595',
+  yellow: '#E5D526',
+  blue: '#2481D7',
+  countBGColor: '#3D3D3D',
+  tileBorderColor: '#D9D9D960',
+  lightGreyColor: '#F8F8F8',
+  greenColor: '#0DB045',
+  red: '#D90D00',
+  UserNameTextColor: '#FFFFFF4D',
+  Bardil: '#FF7465',
+  border: '#F2F2F2',
+  OrGray: '#757575',
+  textInput: '#F7F8FB'
+};

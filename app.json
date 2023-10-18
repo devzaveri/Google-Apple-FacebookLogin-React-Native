@@ -1,0 +1,13 @@
+{
+  "name": "DPLogistic",
+  "displayName": "DPLogistic",
+  "expo": {
+    "android": {
+      "googleServicesFile": "./google-services.json"
+    },
+    "ios": {
+      "googleServicesFile": "./google-services.json"
+    },
+    "plugins": ["@react-native-google-signin/google-signin"]
+  }
+}
