@@ -8,7 +8,7 @@ import {
   HCAccText,
   HcSignUpTouchale,
   HcSignUpText,
-  LoginButton,
+  // LoginButton,
   LoginText,
   TextInputEmail,
   TextInputPassword,
@@ -41,44 +41,62 @@ import {
   LoginBtnText,
 } from './LoginScreenStyle';
 import {Colors} from '../../Theme';
-import {Images} from '../../Theme';
+import {Images, ScreenName} from '../../Theme';
 import {ScrollView, Text, KeyboardAvoidingView, View} from 'react-native';
 import {
   GoogleSignin,
   statusCodes,
-  
 } from '@react-native-google-signin/google-signin';
-import firebase from '@react-native-firebase/app';
+import appleAuth, {
+  AppleAuthCredentialState,
+  AppleAuthRequestOperation,
+  AppleAuthRequestScope,
+  AppleButton,
+} from "@invertase/react-native-apple-authentication";
 
+
+import AsyncStorage from '@react-native-community/async-storage';
+import axios from 'axios';
+import {useFocusEffect} from '@react-navigation/native';
+import {LoginButton, AccessToken , LoginManager} from 'react-native-fbsdk';
+import user from '../../../json/UserData.json';
 
 export default function LoginScreen({navigation}) {
   const [loggedIn, setloggedIn] = useState(false);
   const [userInfo, setuserInfo] = useState([]);
+  const [userName, setUserName] = useState('');
+  const [mainId, setMailId] = useState('');
+  const [photo, setPhoto] = useState('');
+  const [data, setData] = useState();
+  const [mail, setMail] = useState('');
+  const [pass, setPass] = useState('');
+  const [userInfos, setUserInfos] = useState({});
 
   const LoginGoogle = () => {
     GoogleSignin.configure({
       scopes: ['email'],
-      webClientId: '1089775330350-oqi7v5k5utl1am0nm50g82r5mq69s8rv.apps.googleusercontent.com',
-      iosClientId: '1089775330350-oqi7v5k5utl1am0nm50g82r5mq69s8rv.apps.googleusercontent.com',
+      webClientId:
+        '1089775330350-oqi7v5k5utl1am0nm50g82r5mq69s8rv.apps.googleusercontent.com',
+      iosClientId:
+        '1089775330350-oqi7v5k5utl1am0nm50g82r5mq69s8rv.apps.googleusercontent.com',
       offlineAccess: true,
-    }); 
+    });
     _signIn();
   };
+
+ 
 
   const _signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
       const {accessToken, idToken, user} = await GoogleSignin.signIn();
-      // const provider = firebase.auth.GoogleAuthProvider;
-      // const credential = provider.credential(idToken, accessToken);
-      
-      // await firebase.auth().signInWithCredential(credential);
 
       setloggedIn(true);
-      console.log('UserInfor()()++>', user);
-      // console.log('Clicked');console.log("credential******>" , credential);
-      // console.log("await firebase.auth().signInWithCredential(credential)" , await firebase.auth().signInWithCredential(credential));
-      // LoginGoogle()
+      // console.log('UserInfor()()++>', user);
+      setUserName(user.name);
+      setMailId(user.email);
+      setPhoto(user.photo);
+      saveData(user.name, user.email, user.photo);
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
@@ -95,6 +113,7 @@ export default function LoginScreen({navigation}) {
       }
     }
   };
+
   signOut = async () => {
     try {
       await GoogleSignin.revokeAccess();
@@ -103,6 +122,113 @@ export default function LoginScreen({navigation}) {
       setuserInfo([]);
     } catch (error) {
       console.error(error);
+    }
+  };
+
+
+  const handleFacebookLogin = async () => {
+    try {
+      const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
+      if (result.isCancelled) {
+        console.log('Login cancelled');
+      } else {
+        AccessToken.getCurrentAccessToken().then(data => {
+          if (data) {
+            const accessToken = data.accessToken.toString();
+            const userId = data.userID;
+        
+            fetch(`https://graph.facebook.com/${userId}?fields=id,name,email,picture&access_token=${accessToken}`)
+              .then(response => response.json())
+              .then(userData => {
+                console.log(userData);
+                // Now, you have the user information in the `userData` object
+
+
+
+              })
+              .catch(error => {
+                console.error(error);
+              });
+          }
+        });
+      }
+    } catch (error) {
+      console.error('Error during Facebook login:', error);
+    }
+  };
+
+  const UserEmailFunc = item => {
+    setMail(item.toLowerCase());
+  };
+  const userPassFunc = item => {
+    setPass(item);
+  };
+
+  const saveData = async (name, email, photos) => {
+    try {
+      const Data = await AsyncStorage.setItem(
+        'Data',
+        JSON.stringify({
+          name: name,
+          email: email,
+          photo: photos,
+        }),
+      );
+
+      alert('Data stored');
+      navigation.navigate('App');
+    } catch (e) {
+      console.error(e);
+      alert('Failed to save the data to the storage');
+    }
+  };
+
+  const AuthStackNavigation = () => {
+    return <AuthStack isAuth={isAuth} />;
+  };
+
+  const onAppleButtonPress = async () => {
+    // Make a request to apple.
+    const appleAuthRequestResponse = await appleAuth.performRequest({
+      requestedOperation: appleAuth.Operation.LOGIN,
+      requestedScopes: [appleAuth.Scope.FULL_NAME, appleAuth.Scope.EMAIL],
+    });
+    
+    console.log("Helloo==2");
+    
+    // Get the credential for the user.
+    // const credentialState = await appleAuth.getCredentialStateForUser(
+    //   appleAuthRequestResponse.user
+    //   );
+
+    // If the Auth is authorized, we call our API and pass the authorization code.
+    if (credentialState === AppleAuthCredentialState.AUTHORIZED) {
+      console.log("Inside");
+      console.log(appleAuthRequestResponse.authorizationCode);
+
+      axios.post("http://172.20.10.9:3000/auth/apple", {
+        token: appleAuthRequestResponse.authorizationCode,
+      }).then((res) => {
+        if (res?.data?.user) {
+          console.log(res);
+          Alert.alert('Number of connections: ' + res.data.user.nbOfConnections.toString());
+        }
+      });
+    }
+  };
+
+  const loginCheck = async () => {
+    const founder = user.user.find(model => model.email == mail);
+    if (founder) {
+      if (founder.password === pass) {
+        console.log('Login...');
+        await AsyncStorage.setItem('Data', JSON.stringify(founder));
+        navigation.navigate('App');
+      } else {
+        alert('Incorrect Password');
+      }
+    } else {
+      alert('Incorrect Email');
     }
   };
 
@@ -115,21 +241,65 @@ export default function LoginScreen({navigation}) {
           <HCAccText>Don’t have an account? </HCAccText>
           <HcSignUpTouchale
             onPress={() => {
-              navigation.navigate('SignUpScreen');
+              navigation.navigate(ScreenName.SignUpScreen);
             }}>
             <HcSignUpText> Sign Up</HcSignUpText>
           </HcSignUpTouchale>
         </HCAccView>
         <SMView>
-          <GoogleTouchable onPress={LoginGoogle} >
+          <GoogleTouchable onPress={LoginGoogle}>
             <GoogleImg source={Images.google}></GoogleImg>
           </GoogleTouchable>
-          <AppleTouchable>
+          {/* <AppleTouchable
+            onPress={() => {
+              onAppleButtonPress();
+            }}>
             <AppleImg source={Images.apple}></AppleImg>
-          </AppleTouchable>
-          <FacebookTouchable>
+          </AppleTouchable> */}
+           <AppleButton
+        buttonStyle={AppleButton.Style.WHITE}
+        buttonType={AppleButton.Type.SIGN_IN}
+        style={{
+          width: 160,
+          height: 45,
+        }}
+        onPress={() => onAppleButtonPress()}
+      />
+          <FacebookTouchable
+            onPress={handleFacebookLogin}>
             <FacebookImg source={Images.facebook}></FacebookImg>
           </FacebookTouchable>
+          {/* <LoginButton
+        
+            onLoginFinished={(error, result) => {
+              if (error) {
+                console.log('login has error: ' + result.error);
+              } else if (result.isCancelled) {
+                console.log('login is cancelled.');
+              } else {
+                AccessToken.getCurrentAccessToken().then(data => {
+                  if (data) {
+                    const accessToken = data.accessToken.toString();
+                    const userId = data.userID;
+                
+                    fetch(`https://graph.facebook.com/${userId}?fields=id,name,email,picture&access_token=${accessToken}`)
+                      .then(response => response.json())
+                      .then(userData => {
+                        console.log(userData);
+                        // Now, you have the user information in the `userData` object
+
+
+
+                      })
+                      .catch(error => {
+                        console.error(error);
+                      });
+                  }
+                });
+              }
+            }}
+            onLogoutFinished={() => console.log('logout.')}
+          /> */}
         </SMView>
         <OrSection>
           <LeftView></LeftView>
@@ -146,11 +316,17 @@ export default function LoginScreen({navigation}) {
         <MainLoginView>
           <EmailView>
             <EmailText>Email</EmailText>
-            <EmailTextInput></EmailTextInput>
+            <EmailTextInput
+              onChangeText={item => {
+                UserEmailFunc(item);
+              }}></EmailTextInput>
           </EmailView>
           <PassView>
             <PassText>Password</PassText>
-            <PassTextInput></PassTextInput>
+            <PassTextInput
+              onChangeText={item => {
+                userPassFunc(item);
+              }}></PassTextInput>
           </PassView>
           <RememberView>
             <RememberCheckbox>
@@ -168,15 +344,18 @@ export default function LoginScreen({navigation}) {
           </RememberView>
         </MainLoginView>
         <LoginButtonView>
-          <LoginTouchable>
+          <LoginTouchable
+            onPress={() => {
+              // navigation.navigate('App')
+              loginCheck();
+            }}>
             <LoginBtnText>Login</LoginBtnText>
           </LoginTouchable>
         </LoginButtonView>
       </View>
     );
   };
-  console.log('userInfo==>', userInfo);
-  console.log('loggedIn==>', loggedIn);
+
   return (
     <Container>
       <KeyboardAvoidingView

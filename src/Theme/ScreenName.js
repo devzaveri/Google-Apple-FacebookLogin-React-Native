@@ -10,6 +10,7 @@ export default {
   ForgotPassword: 'ForgotPassword',
   OTPScreen: 'OTPScreen',
   ResetPassword: 'ResetPassword',
+  App: 'App',
   // Main Flow
   AppRoot: 'AppRoot',
   HomeScreen: 'HomeScreen',

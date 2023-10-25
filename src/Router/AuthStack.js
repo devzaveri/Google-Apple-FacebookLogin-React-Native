@@ -12,6 +12,8 @@ import SignUpScreen from '../LoginFlow/SignUpScreen/SignUpScreen';
 import ForgotPassword from '../LoginFlow/ForgotPassword/ForgotPassword';
 import OTPScreen from '../LoginFlow/OTPScreen/OTPScreen';
 import ResetPassword from '../LoginFlow/ResetPassword/ResetPassword';
+import App from '../../App';
+
 
 // Main Navigation Flow
 export default function AuthStack(props) {
@@ -27,6 +29,12 @@ export default function AuthStack(props) {
         name={ScreenName.SplashScreen}
         key={ScreenName.SplashScreen}
         component={SplashScreen}
+        initial
+      />
+      <Stack.Screen
+        name={ScreenName.App}
+        key={ScreenName.App}
+        component={App}
         initial
       />
       <Stack.Screen

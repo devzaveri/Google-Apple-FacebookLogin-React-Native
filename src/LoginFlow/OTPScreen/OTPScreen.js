@@ -59,7 +59,9 @@ const OTPScreen = ({navigation}) => {
   const BTNView = () => {
     return (
         <LoginButtonView>
-        <LoginTouchable>
+        <LoginTouchable onPress={()=>{
+          navigation.navigate("HomeScreen")
+        }}>
           <LoginBtnText>Register</LoginBtnText>
         </LoginTouchable>
       </LoginButtonView>

@@ -17,6 +17,7 @@ export default function SplashScreen(props) {
       if (isAuth) {
         console.log('Login success');
         props?.navigation.navigate(ScreenName.HomeScreen);
+        console.log("ScreenName.HomeScreen");
         // Actions.push(ScreenName.HomeScreen);
       } else {
         console.log('Login call');

@@ -15,6 +15,8 @@ import Auction from '../MainFlow/Auction/Auction';
 import Profile from '../MainFlow/Profile/Profile';
 import {TabBarContainer, TabBarIcon} from '../styles/styles';
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
+import App from '../../App';
+
 
 // Main Navigation Flow
 export default function AppStack(props) {
@@ -184,6 +186,15 @@ export default function AppStack(props) {
         }}
         name="AppDrawerStack"
         component={AppDrawerStack}
+      />
+       <Stack.Screen
+       options={{
+        headerShown: false,
+      }}
+        name={ScreenName.App}
+        key={ScreenName.App}
+        component={App}
+        initial
       />
     </Stack.Navigator>
   );

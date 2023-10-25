@@ -18,8 +18,7 @@ padding-bottom: 20px;
 `
 
 export const MainHC = styled.View`
-/* height: ${Responsive.heightPercentageToDP('30%')}; */
-/* width:  ${Responsive.widthPercentageToDP('100%')}; */
+
 width: 100%;
 align-items: center;
 
@@ -27,8 +26,10 @@ align-items: center;
 `
 
 export const HCIcon = styled.Image`
-height:  ${Responsive.heightPercentageToDP('20%')};
-width:  ${Responsive.widthPercentageToDP('30%')};
+height:  170px;
+width:  118px;
+
+
 
 `
 export const HCLoginText = styled.Text`
