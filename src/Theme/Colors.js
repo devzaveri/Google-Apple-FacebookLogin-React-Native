@@ -18,5 +18,8 @@ export default {
   Bardil: '#FF7465',
   border: '#F2F2F2',
   OrGray: '#757575',
-  textInput: '#F7F8FB'
+  textInput: '#F7F8FB',
+  fontclr: "#001833",
+  outerborder: "#C5C5C5",
+  checkoutClr: "#D8D8D8"
 };

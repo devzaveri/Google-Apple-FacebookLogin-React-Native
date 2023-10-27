@@ -1,5 +1,5 @@
 import React from 'react';
-import {ToastAndroid, BackHandler, StyleSheet} from 'react-native';
+import {ToastAndroid, BackHandler, StyleSheet, View} from 'react-native';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -13,9 +13,16 @@ import Home from '../MainFlow/Home/Home';
 import Collection from '../MainFlow/Collection/Collection';
 import Auction from '../MainFlow/Auction/Auction';
 import Profile from '../MainFlow/Profile/Profile';
-import {TabBarContainer, TabBarIcon} from '../styles/styles';
+import Cart from '../MainFlow/Cart/Cart';
+
+
+
+import {TabBarContainer, TabBarIcon , TabBarContainer2 , TabBarIcon2 , TabBarContainerView2} from '../styles/styles';
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import App from '../../App';
+import Svg, { Circle, Path } from "react-native-svg";
+import QRCode from '../MainFlow/QRCode/QRCode';
+import Details from '../MainFlow/Home/Details/Details';
 
 
 // Main Navigation Flow
@@ -43,6 +50,7 @@ export default function AppStack(props) {
           // await AsyncStorage.setItem(Constants.asyncStorageKeys.UserRole, item.route.name);
           //   Constant.asyncStorageKeys.tabScreen = item.route.name;
         }}
+        
         screenOptions={{
           headerShown: false,
           tabBarStyle: {},
@@ -52,7 +60,7 @@ export default function AppStack(props) {
           name={ScreenName.HomeScreen}
           component={Home}
           options={({route}) => ({
-            tabBarLabel: 'Home',
+            tabBarLabel: '',
             tabBarShowLabel: true,
             // unmountOnBlur: true,
             tabBarLabelStyle: (route => setTabBarLabelStyleForScreen(route))(
@@ -70,12 +78,13 @@ export default function AppStack(props) {
             },
           })}
         />
+        
 
         <Tab.Screen
           name={ScreenName.Collection}
           component={Collection}
           options={({route}) => ({
-            tabBarLabel: 'Collections',
+            tabBarLabel: '',
             tabBarShowLabel: true,
             // unmountOnBlur: true,
             tabBarLabelStyle: (route => setTabBarLabelStyleForScreen(route))(
@@ -93,12 +102,37 @@ export default function AppStack(props) {
             },
           })}
         />
+        <Tab.Screen
+          name={ScreenName.QRCode}
+          component={QRCode}
+          options={({route}) => ({
+            tabBarLabel: '',
+            tabBarShowLabel: true,
+            // unmountOnBlur: true,
+            tabBarLabelStyle: (route => setTabBarLabelStyleForScreen(route))(
+              route,
+            ),
+            tabBarStyle: (route => setTabBarStyleForScreen(route))(route),
+            tabBarIcon: ({focused}) => {
+              return (
+                <TabBarContainerView2>
+                <TabBarContainer2>
+                  <TabBarIcon2
+                    source={Images.scanner }
+                  />
+                </TabBarContainer2>
+                </TabBarContainerView2>
+
+              );
+            },
+          })}
+        />
 
         <Tab.Screen
           name={ScreenName.Auction}
           component={Auction}
           options={({route}) => ({
-            tabBarLabel: 'Auction',
+            tabBarLabel: '',
             tabBarShowLabel: true,
             // unmountOnBlur: true,
             tabBarLabelStyle: (route => setTabBarLabelStyleForScreen(route))(
@@ -125,7 +159,7 @@ export default function AppStack(props) {
           name={ScreenName.Profile}
           component={Profile}
           options={({route}) => ({
-            tabBarLabel: 'Profile',
+            tabBarLabel: '',
             tabBarShowLabel: true,
             // unmountOnBlur: true,
             tabBarLabelStyle: (route => setTabBarLabelStyleForScreen(route))(
@@ -174,6 +208,13 @@ export default function AppStack(props) {
           name="Home"
           component={AppBottomStack}
         />
+        <DrawerStack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="Cart"
+          component={Cart}
+        />
       </Drawer.Navigator>
     );
   }
@@ -196,23 +237,52 @@ export default function AppStack(props) {
         component={App}
         initial
       />
+       <Stack.Screen
+       options={{
+        headerShown: false,
+      }}
+        name={ScreenName.Details}
+        key={ScreenName.Details}
+        component={Details}
+        initial
+      />
+       <Stack.Screen
+       options={{
+        headerShown: false,
+      }}
+        name={ScreenName.Cart}
+        key={ScreenName.Cart}
+        component={Cart}
+        initial
+      />
+        
     </Stack.Navigator>
   );
 }
 
 const styles = StyleSheet.create({
   myTabBarStyle: {
+    borderTopLeftRadius:25,
+    borderTopRightRadius:25,
     position: 'absolute',
     paddingTop:
       Platform.OS === 'ios'
         ? Responsive.heightPercentageToDP('0.5%')
         : Responsive.heightPercentageToDP('0.5%'),
     bottom: Responsive.heightPercentageToDP(0),
-    backgroundColor: Colors.black,
-    shadowColor: Colors.black,
+    backgroundColor: Colors.white,
+    shadowOpacity: 1,
+    shadowRadius: 16.0,
+    elevation: 24,
+    shadowOffset: {
+      width: 0,
+      height: 15,
+  },
+
+  //  shadowColor: '#fff',
     height:
       Platform.OS === 'ios'
-        ? Responsive.heightPercentageToDP('10%')
+        ? Responsive.heightPercentageToDP('11%')
         : Responsive.heightPercentageToDP('7%'),
     width: Responsive.widthPercentageToDP('100%'),
     alignItems: 'center',

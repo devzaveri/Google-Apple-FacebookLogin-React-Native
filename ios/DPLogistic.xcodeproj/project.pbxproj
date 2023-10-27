@@ -247,7 +247,7 @@
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			packageReferences = (
-				D72B5FBB2ADFAC27002300EF /* XCLocalSwiftPackageReference "../../../Downloads/firebase-ios-sdk-master" */,
+				D72B5FBB2ADFAC27002300EF /* XCLocalSwiftPackageReference "firebase-ios-sdk-master" */,
 				D79147462AE791E300B12544 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -540,8 +540,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.bagnotbin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bagnotbin;
 				PRODUCT_NAME = DPLogistic;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Dev_BNB;
@@ -577,8 +576,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.bagnotbin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DPLogistic;
 				PRODUCT_NAME = DPLogistic;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Dev_BNB;
@@ -775,7 +773,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		D72B5FBB2ADFAC27002300EF /* XCLocalSwiftPackageReference "../../../Downloads/firebase-ios-sdk-master" */ = {
+		D72B5FBB2ADFAC27002300EF /* XCLocalSwiftPackageReference "firebase-ios-sdk-master" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../Downloads/firebase-ios-sdk-master";
 		};

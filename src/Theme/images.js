@@ -16,7 +16,11 @@ const Images = {
   google: require('../icon/Google.png'),
   facebook: require('../icon/Facebook.png'),
   apple: require('../icon/Apple.png'),
-  back: require('../icon/Back.png')
+  back: require('../icon/Back.png'),
+  scanner: require('../ImgData/barcode-scanner.png'),
+  menu: require('../icon/Menu.png'),
+  minus: require('../icon/Vector.png'),
+  plus: require("../icon/PlusCount.png"),
 };
 
 export default Images;

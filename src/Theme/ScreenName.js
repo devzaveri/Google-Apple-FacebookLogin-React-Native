@@ -17,4 +17,7 @@ export default {
   Collection: 'Collection',
   Auction: 'Auction',
   Profile: 'Profile',
+  QRCode: 'QRCode',
+  Details: 'Details',
+  Cart: 'Cart',
 };

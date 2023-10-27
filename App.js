@@ -8,8 +8,8 @@ import AuthStack from './src/Router/AuthStack';
 import {NavigationContainer} from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Provider } from 'react-redux';
-import configureStore from './src/redux/store';
-const store = configureStore()
+import store from './src/redux/store';
+
 
 const statusBarHeight =
   Platform.OS === 'ios'
@@ -59,7 +59,7 @@ export default function App() {
         ) : (
           <AuthStack isAuth={isAuth} />
         )}
-        </Provider>
+</Provider>
       </NavigationContainer>
     </View>
   );

@@ -1,15 +1,12 @@
 // packages
-import {Dimensions, PixelRatio, Platform} from 'react-native';
-import ExtraDimensions from 'react-native-extra-dimensions-android';
+import {Dimensions, PixelRatio, Platform, NativeModules} from 'react-native';
+const {StatusBarManager} = NativeModules;
+
 // Retrieve initial screen's width
 let screenWidth = Dimensions.get('window').width;
 
 // Retrieve initial screen's height
-let screenHeight =
-  Platform.OS === 'ios'
-    ? Dimensions.get('window').height
-    : Dimensions.get('window').height -
-      ExtraDimensions.get('SOFT_MENU_BAR_HEIGHT');
+let screenHeight = Dimensions.get('window').height;
 
 /**
  * Converts provided width percentage to independent pixel (dp).
@@ -17,11 +14,6 @@ let screenHeight =
  *                               along with the percentage symbol (%).
  * @return {number}              The calculated dp depending on current device's screen width.
  */
-const convertFontScale = fontSize => {
-  // Parse fontSize convert according to screen width.
-  const baseSize = Platform.select({ios: 414, android: 420});
-  return fontSize * (screenWidth / baseSize);
-};
 const widthPercentageToDP = widthPercent => {
   // Parse string percentage input and convert it to number.
   const elemWidth = parseFloat(widthPercent);
@@ -46,6 +38,11 @@ const heightPercentageToDP = heightPercent => {
   return PixelRatio.roundToNearestPixel((screenHeight * elemHeight) / 100);
 };
 
+const convertFontScale = fontSize => {
+  // Parse fontSize convert according to screen width.
+  const baseSize = Platform.select({ios: 414, android: 420});
+  return fontSize * (screenWidth / baseSize);
+};
 /**
  * Event listener function that detects orientation change (every time it occurs) and triggers
  * screen re rendering. It does that, by changing the state of the screen where the function is
@@ -77,9 +74,19 @@ const listenOrientationChange = that => {
 const removeOrientationListener = () => {
   Dimensions.removeEventListener('change', () => {});
 };
+
 const isIPhoneX = () => {
-  return Platform.OS === 'ios' && Dimensions.get('window').height >= 812;
+  if (Platform.OS === 'ios') {
+    if (StatusBarManager.HEIGHT <= 20) {
+      return 1;
+    } else if (StatusBarManager.HEIGHT > 20 && StatusBarManager.HEIGHT <= 48) {
+      return 2;
+    } else {
+      return 3;
+    }
+  }
 };
+
 export default {
   convertFontScale,
   widthPercentageToDP,

@@ -188,34 +188,57 @@ export default function LoginScreen({navigation}) {
   };
 
   const onAppleButtonPress = async () => {
-    // Make a request to apple.
-    const appleAuthRequestResponse = await appleAuth.performRequest({
-      requestedOperation: appleAuth.Operation.LOGIN,
-      requestedScopes: [appleAuth.Scope.FULL_NAME, appleAuth.Scope.EMAIL],
-    });
-    
-    console.log("Helloo==2");
-    
-    // Get the credential for the user.
-    // const credentialState = await appleAuth.getCredentialStateForUser(
-    //   appleAuthRequestResponse.user
-    //   );
-
-    // If the Auth is authorized, we call our API and pass the authorization code.
-    if (credentialState === AppleAuthCredentialState.AUTHORIZED) {
-      console.log("Inside");
-      console.log(appleAuthRequestResponse.authorizationCode);
-
-      axios.post("http://172.20.10.9:3000/auth/apple", {
-        token: appleAuthRequestResponse.authorizationCode,
-      }).then((res) => {
-        if (res?.data?.user) {
-          console.log(res);
-          Alert.alert('Number of connections: ' + res.data.user.nbOfConnections.toString());
-        }
+    try {
+      // Make a request to apple.
+      const appleAuthRequestResponse = await appleAuth.performRequest({
+        requestedOperation: appleAuth.Operation.LOGIN,
+        requestedScopes: [appleAuth.Scope.FULL_NAME, appleAuth.Scope.EMAIL],
       });
+  
+      console.log("Helloo==2");
+  
+      // Log the response to see what information you've received.
+      console.log("Apple Auth Response:", JSON.stringify(appleAuthRequestResponse));
+  
+      // Get the credential state for the user.
+      const credentialState = await appleAuth.getCredentialStateForUser(
+        appleAuthRequestResponse.user
+      );
+  
+      console.log("Credential State:", credentialState);
+  
+      // If the Auth is authorized, call your API and pass the authorization code.
+      if (credentialState === appleAuth.State.AUTHORIZED) {
+        console.log("Inside");
+        console.log(
+          "appleAuthRequestResponse.authorizationCode==>",
+          appleAuthRequestResponse.authorizationCode
+        );
+  
+        // Make sure to handle the case where the API call fails.
+        axios
+          .post("http://172.20.10.9:3000/auth/apple", {
+            token: appleAuthRequestResponse.authorizationCode,
+          })
+          .then((res) => {
+            if (res?.data?.user) {
+              console.log("res==>", res);
+              Alert.alert('Number of connections: ' + res.data.user.nbOfConnections.toString());
+            } else {
+              console.log("Failed Inside");
+            }
+          })
+          .catch((error) => {
+            console.error("API Call Error:", error);
+          });
+      } else {
+        console.log("Failed");
+      }
+    } catch (error) {
+      console.error("Error with Apple Sign-In:", error);
     }
   };
+  
 
   const loginCheck = async () => {
     const founder = user.user.find(model => model.email == mail);
