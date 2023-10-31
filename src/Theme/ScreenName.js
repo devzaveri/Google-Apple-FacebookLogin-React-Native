@@ -20,4 +20,5 @@ export default {
   QRCode: 'QRCode',
   Details: 'Details',
   Cart: 'Cart',
+  Address: 'Address'
 };

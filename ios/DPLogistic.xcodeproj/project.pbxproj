@@ -14,6 +14,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		CA38A9558E375404659FE838 /* Pods_DPLogistic_DPLogisticTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7739E498102673762B236EE8 /* Pods_DPLogistic_DPLogisticTests.framework */; };
+		D70804D02AEF7C580002E870 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = D70804CF2AEF7C580002E870 /* Fonts */; };
 		D72B5FBD2AE003DE002300EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D72B5FBC2AE003DE002300EF /* GoogleService-Info.plist */; };
 		D79147482AE7A18100B12544 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D79147472AE7A18100B12544 /* Bolts.framework */; };
 		D791474A2AE7A1B300B12544 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D79147492AE7A1B300B12544 /* FBSDKCoreKit.framework */; };
@@ -48,6 +49,7 @@
 		7E57676A15AB15EAF49203F6 /* Pods-DPLogistic-DPLogisticTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DPLogistic-DPLogisticTests.debug.xcconfig"; path = "Target Support Files/Pods-DPLogistic-DPLogisticTests/Pods-DPLogistic-DPLogisticTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DPLogistic/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8FFF5B7CF986589F6C2223AC /* Pods-DPLogistic-DPLogisticTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DPLogistic-DPLogisticTests.release.xcconfig"; path = "Target Support Files/Pods-DPLogistic-DPLogisticTests/Pods-DPLogistic-DPLogisticTests.release.xcconfig"; sourceTree = "<group>"; };
+		D70804CF2AEF7C580002E870 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
 		D72B5FBC2AE003DE002300EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D73044B92AE0F11200737F82 /* DPLogistic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DPLogistic.entitlements; path = DPLogistic/DPLogistic.entitlements; sourceTree = "<group>"; };
 		D79147472AE7A18100B12544 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Downloads/facebook-ios-sdk-current/Bolts.framework"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				D70804CF2AEF7C580002E870 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* DPLogistic */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* DPLogisticTests */,
@@ -275,6 +278,7 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				D72B5FBD2AE003DE002300EF /* GoogleService-Info.plist in Resources */,
+				D70804D02AEF7C580002E870 /* Fonts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

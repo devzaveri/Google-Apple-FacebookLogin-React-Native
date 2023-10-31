@@ -23,6 +23,7 @@ import App from '../../App';
 import Svg, { Circle, Path } from "react-native-svg";
 import QRCode from '../MainFlow/QRCode/QRCode';
 import Details from '../MainFlow/Home/Details/Details';
+import Address from '../Address/Address'
 
 
 // Main Navigation Flow
@@ -244,6 +245,15 @@ export default function AppStack(props) {
         name={ScreenName.Details}
         key={ScreenName.Details}
         component={Details}
+        initial
+      />
+       <Stack.Screen
+       options={{
+        headerShown: false,
+      }}
+        name={ScreenName.Address}
+        key={ScreenName.Address}
+        component={Address}
         initial
       />
        <Stack.Screen

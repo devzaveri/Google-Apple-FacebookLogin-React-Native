@@ -21,6 +21,7 @@ const Images = {
   menu: require('../icon/Menu.png'),
   minus: require('../icon/Vector.png'),
   plus: require("../icon/PlusCount.png"),
+  emptyCart: require("../icon/Cart.png")
 };
 
 export default Images;

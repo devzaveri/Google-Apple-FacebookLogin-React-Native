@@ -36,6 +36,13 @@ import {
   CheckOutOutterView,
   CheckoutView,
   CheckoutText,
+  EmptyCartView,
+  ECImage,
+  EmptyCartTitleText,
+  ECDetailsText,
+  EmptyLFMainView,
+  ShopNowBtn,
+  ShopNowText,
 } from './CartStyle';
 import React, {useEffect, useState} from 'react';
 import {View, Text, ScrollView} from 'react-native';
@@ -47,18 +54,45 @@ import {Colors, Responsive, Fonts, Images} from '../../Theme';
 const Cart = ({navigation}) => {
   const [cartLenth, setCartLenth] = useState(0);
   const [selecteditem, setSelectedItem] = useState([]);
-
+  const [tPrice, setTPrice] = useState(0);
   const cartData = useSelector(state => state.reducer);
+  const [helloItem , sethelloItem] = useState(null)
+
   useEffect(() => {
     setCartLenth(cartData);
-  }, [cartData]);
-  const GetSelectedItem = (index , item) => {
+    TotalPriceCountFunc();
+  }, [cartData, selecteditem]);
+  const GetSelectedItem = (index, item) => {
     const updatedList = selecteditem.includes(item)
-      ? selecteditem.filter(cartLenth => cartLenth !== item )
+      ? selecteditem.filter(cartLenth => cartLenth !== item)
       : [...selecteditem, item];
-    setSelectedItem(updatedList);    
-    console.log(JSON.stringify(updatedList,null,2));
+    setSelectedItem(updatedList);
+    // console.log(JSON.stringify(selecteditem,null,2));
+    // const isCheckedItem = updatedList.includes(item)
+    //   ? updatedList.filter(item => (item.isChacked === false ? true : false))
+    //   : [...selecteditem, item];
+    // setSelectedItem(updatedList);
   };
+
+  const TotalPriceCountFunc = () => {
+    count = 0;
+    const total = selecteditem.reduce((acc, price) => acc + price.price, 0);
+    setTPrice(total);
+  };
+  const AllSelectFunc = () => {
+    if (selecteditem.length !== 0) {
+      setSelectedItem([]); // Deselect all
+      console.log('If Part', selecteditem);
+    } else {
+      const Data = selecteditem.includes(cartData)
+        ? selecteditem.filter(cartLenth => cartLenth !== cartData)
+        : [...selecteditem, cartData];
+      setSelectedItem(Data[0]);
+      console.log('elsePart ===>', Data);
+    }
+  };
+  
+
   const HeaderViewFunc = () => {
     return (
       <HeaderMainiView>
@@ -87,8 +121,8 @@ const Cart = ({navigation}) => {
               <InnerFLMainView>
                 <ItemCheckView>
                   <CheckBoxBtn
-                     selectedItem={selecteditem === index}
-                     onPress={() => GetSelectedItem(index , item)}></CheckBoxBtn>
+                    // selectedItem={index}
+                    onPress={() => GetSelectedItem(index, item)}></CheckBoxBtn>
                 </ItemCheckView>
                 <ContentView>
                   <ProductImg source={item.img} />
@@ -114,13 +148,24 @@ const Cart = ({navigation}) => {
       </ILMainContainer>
     );
   };
+  const emptyListFunc = () => {
+    return (
+      <EmptyCartView>
+        <ECImage source={Images.emptyCart} resizeMode="contain" />
+        <EmptyCartTitleText>Empty Basket</EmptyCartTitleText>
+        <ECDetailsText>
+          Your basket is still empty, browse the attractive promos from bardeal
+        </ECDetailsText>
+      </EmptyCartView>
+    );
+  };
   const FooterFunc = () => {
     return (
       <FMainContainer>
         <SelectView>
           <SelectText>Select All</SelectText>
           <SelectCheckOuterView>
-            <SelectCheckView></SelectCheckView>
+            <SelectCheckView data={selecteditem.length === cartData.length} onPress={AllSelectFunc}></SelectCheckView>
           </SelectCheckOuterView>
         </SelectView>
         <DashLineView>
@@ -134,15 +179,38 @@ const Cart = ({navigation}) => {
         <TotalPaymentView>
           <PaymentText>Total Payment</PaymentText>
           <PriceOuterView>
-            <PriceText>$0.00</PriceText>
+            <PriceText>${tPrice}</PriceText>
           </PriceOuterView>
         </TotalPaymentView>
         <CheckOutOutterView>
-          <CheckoutView>
-            <CheckoutText>Checkout</CheckoutText>
-          </CheckoutView>
+          {
+            selecteditem.length !== 0 ? (
+              <CheckoutView getBGcolor={selecteditem.length} onPress={()=>{
+                navigation.navigate('Address')
+              }} >
+              <CheckoutText>Checkout</CheckoutText>
+            </CheckoutView>
+            ) : (
+              <CheckoutView getBGcolor={selecteditem.length} disabled={true} >
+              <CheckoutText>Checkout</CheckoutText>
+            </CheckoutView>
+            )
+          }
+         
         </CheckOutOutterView>
       </FMainContainer>
+    );
+  };
+  const emptyListFooterFunc = () => {
+    return (
+      <EmptyLFMainView>
+        <ShopNowBtn
+          onPress={() => {
+            navigation.navigate('Home');
+          }}>
+          <ShopNowText>Shopping Now</ShopNowText>
+        </ShopNowBtn>
+      </EmptyLFMainView>
     );
   };
 
@@ -154,11 +222,11 @@ const Cart = ({navigation}) => {
         paddingTop: 40,
         backgroundColor: '#fff',
       }}>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         {HeaderViewFunc()}
-        {ItemListFunc()}
+        {cartData.length !== 0 ? ItemListFunc() : emptyListFunc()}
       </ScrollView>
-      {FooterFunc()}
+      {cartData.length !== 0 ? FooterFunc() : emptyListFooterFunc()}
     </View>
   );
 };
