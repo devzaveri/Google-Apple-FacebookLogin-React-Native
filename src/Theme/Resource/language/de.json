@@ -1,0 +1,287 @@
+{
+  "app": {
+    "appName": "LIT",
+    "welcome": "Welcome to "
+  },
+  "getStarted": {
+    "getStarted": "Loslegen",
+    "login": "Einloggen",
+    "enterAge": "Gebe Dein Alter ein",
+    "agreeTermsPrivacy": "Durch die Eingabe Ihres Alters stimmen Sie unseren Nutzungsbedingungen und Datenschutzbestimmungen zu"
+  },
+  "gradeSelect": {
+    "WhatGradeAreYou": "In welcher Klasse bist du?",
+    "notInSchool": "Nicht im Gymnasium",
+    "highSchool": "Weiterführende Schule"
+  },
+  "pickSchool": {
+    "PickYouSchool": "Wähle deine Schule",
+    "members": "Mitglieder",
+    "search": "Suche..."
+  },
+  "phoneNumber": {
+    "PhonePlaceholder": "Telefonnummer",
+    "EnterYourNumber": "Trage deine Telefonnummer ein",
+    "RememberSignupYourNumber": "Denken Sie daran: Melden Sie sich niemals mit der Telefonnummer einer anderen Person an.",
+    "WeSendVerificationCode": "Wir haben Ihnen einen Code gesendet, um Ihre Nummer zu bestätigen",
+    "Sendto": "Senden an",
+    "Code": "Code"
+  },
+  "next": {
+    "next": "Nächste"
+  },
+  "firstName": {
+    "WhatsYourFirstName": "Wie ist dein Vorname?",
+    "fname": "Vorname"
+  },
+  "lastName": {
+    "WhatsYourLastName": "Wie lautet dein Nachname?",
+    "lname": "Nachname"
+  },
+  "userName": {
+    "ChooseUserName": "Wähle einen Benutzernamen",
+    "uname": "Nutzername"
+  },
+  "addFrineds": {
+    "addFrined": "Añade amigos"
+  },
+  "addProfilePic": {
+    "skip": "Überspringen",
+    "friendCanFind": "Fügen Sie ein Foto hinzu, damit Ihr Freund Sie finden kann",
+    "addProfilePhoto": "Fügen Sie ein Profilfoto hinzu",
+    "choosePhoto": "Wähle ein Foto",
+    "takePhoto": "Mach ein Foto"
+  },
+  "gender": {
+    "nonbinary": "Nicht-binär",
+    "male": "Junge",
+    "female": "Mädchen",
+    "whatsGender": "Was ist dein Geschlecht?"
+  },
+  "addFriends": {
+    "mutualContact": "Gemeinsame Freunde",
+    "peopleYouKnow": "LEUTE DIE SIE VIELLEICHT KENNEN",
+    "add": "HINZUFÜGEN",
+    "added": "Hinzugefügt",
+    "hide": "Ausblenden",
+    "fromSchool": "VON DER SCHULE",
+    "friendsOfFriends": "FREUNDE VON FREUNDEN",
+    "nonRegister": "NICHT REGISTRIEREN",
+    "invite": "EINLADEN",
+    "seeMore": "Mehr sehen",
+    "friendOnLit" : "Freunde auf LIT"
+  },
+  "welcomes": {
+    "starts": "Anfang",
+    "welcometo": "WILLKOMMEN ZU",
+    "answerPolls": "Beantworten Sie Umfragen über Freunde",
+    "getFlames": "Holen Sie sich Flammen, wenn Sie ausgewählt werden"
+  },
+  "common": {
+    "ok": "OK",
+    "yes": "JA",
+    "no": "NEIN",
+    "areYouSure": "Sind Sie sicher, dass Sie den Benutzer blockieren möchten?",
+    "areYouSureReport": "Möchten Sie diesen Benutzer wirklich melden?",
+    "areYouSureDelete": "Sind Sie sicher, dass Sie das Profil löschen möchten?"
+  },
+  "alert": {
+    "enterFname": "Bitte geben Sie den Vornamen ein",
+    "enterLname": "Bitte geben Sie den Nachnamen ein",
+    "enterUname": "Bitte geben sie einen Benutzernamen ein",
+    "enterMnumber": "Bitte Handynummer eingeben",
+    "enterOtp": "Bitte geben Sie otp ein",
+    "selectAge": "Bitte Alter auswählen",
+    "changeGenderWarning": "Sie haben Ihr Geschlecht bereits geändert. Es kann nicht mehr geändert werden.",
+    "changeSchoolWarning": "Du hast bereits deine Schule gewechselt. Es kann nicht mehr geändert werden.",
+    "changeGradeWarning": "Sie haben Ihre Note bereits geändert. Es kann nicht mehr geändert werden.",
+    "CanYouPleaseGrantContactPermission": "Können Sie bitte die Kontakterlaubnis erteilen",
+    "CanYouPleaseGrantLocationPermission": "Können Sie bitte die Standorterlaubnis erteilen"
+  },
+  "polls": {
+    "shuffle": "Mischen",
+    "skip": "Überspringen",
+    "tapContinue": "Tippen Sie, um fortzufahren",
+    "cantShuffel": "Du kannst nicht mehr als 3 Mal mischen",
+    "goingTooFast": "Du fährst zu schnell"
+  },
+  "inbox": {
+    "notificationOff": "Benachrichtigungen sind deaktiviert",
+    "tapToEnable": "Tippen Sie, um es wieder zu aktivieren",
+    "seeWhoLike": "Sehen Sie, wer Sie mag",
+    "hideFromActivity": "Aus Aktivitätsfeed ausblenden",
+    "revealNamesText": "Namen enthüllen"
+  },
+  "manageAccount": {
+    "close": "Nah dran",
+    "manageAccount": "Konto verwalten",
+    "deleteAccount": "Konto löschen",
+    "addFriend": "FREUNDE HINZUFÜGEN",
+    "resetBlockList": "Sperrliste zurücksetzen",
+    "resetHideList": "Ausblendliste zurücksetzen",
+    "nameInPoll": "NAMEN IN UMFRAGEN",
+    "everyOne": "Alle",
+    "setting": "DIE EINSTELLUNGEN",
+    "reduceNotification": "Benachrichtigungen reduzieren",
+    "hideTopFlame": "Obere Flammen ausblenden",
+    "takeBreakFromLIT": "Machen Sie eine Pause von LIT",
+    "save": "Speichern",
+    "whichFriendsPolls": "Welche Freunde würdest du gerne in Umfragen sehen?",
+    "litAttemptPeople": "LIT wird versuchen, Ihnen nur diese Personen anzuzeigen.",
+    "myGrade": "Meiner Klasse",
+    "boys": "Jungen",
+    "girls": "Mädchen",
+    "cancel": "Stornieren"
+  },
+  "permission": {
+    "pleaseAllowAccess": "Bitte erlauben Sie Zugang",
+    "litNeedsToFind": "LIT muss deine Schule finden und Freunde vorschlagen.",
+    "enableLocation": "Aktiviere Standort",
+    "enableContacts": "Kontakte aktivieren",
+    "litPrivacy": "LIT kümmert sich intensiv um Ihre Privatsphäre.",
+    "litContacts": "Wir werden Ihren Kontakten niemals eine SMS senden oder sie spammen.",
+    "sendNotify": " Ich möchte Ihnen Benachrichtigungen senden",
+    "notAllow": "Nicht zulassen"
+  },
+  "activity": {
+    "fromA": "Von einem",
+    "nonbinary": "nichtbinär",
+    "male": "Junge",
+    "female": "Mädchen",
+    "in": "in",
+    "grade": "Klasse",
+    "received": "erhalten",
+    "block": "Block",
+    "report": "Prüfbericht",
+    "reportUser": "Benutzer melden",
+    "InappropriatePic": "Unangemessenes Foto",
+    "pretendSomeone": "Vorgeben, jemand anderes zu sein",
+    "underYearOld": "Darf unter 13 Jahre alt sein",
+    "doesNotSchool": "Geht nicht auf meine Schule",
+    "bullying": "Tyrannisieren",
+    "iDontLike": "Ich mag sie nicht",
+    "other": "andere",
+    "from": "Vom Lit-Team"
+  },
+  "nodata": {
+    "nodata": "Keine Daten gefunden",
+    "congrats": "Herzlichen Glückwunsch",
+    "earnedCoin" : "Du hast verdient ",
+    "coins" : " Münzen",
+    "cashout": "Auszahlen"
+  },
+  "profile": {
+    "friends": "Freunde",
+    "flames": "Flammen",
+    "editProfile": "PROFIL BEARBEITEN",
+    "grade": "Klasse",
+    "shareProfile": "Profil teilen",
+    "shop": "GESCHÄFT",
+    "topFlames": "Obere Flammen",
+    "added": "HINZUGEFÜGT",
+    "profile": "PROFIL"
+  },
+  "editProfile": {
+    "school": "SCHULE",
+    "accountSetting": "ACCOUNT EINSTELLUNGEN",
+    "restorePurchase": "Kauf wiederherstellen",
+    "logout": "Ausloggen",
+    "signInAs": "Sie sind angemeldet als",
+    "classOf": "Klasse von",
+    "editProfile": "Profil bearbeiten",
+    "gender": "Geschlecht"
+  },
+  "playAgain": {
+    "playAgain": "Nochmal abspielen",
+    "newPolls": "Neue Umfragen rein",
+    "or": "ODER",
+    "skipWait": "Überspringen Sie das Warten",
+    "inviteFriend": "Einen Freund einladen"
+  },
+  "payments": {
+    "seeWhoLike": "Sehen Sie, wer Sie mag",
+    "with": "mit",
+    "godMode": "GOTT-MODUS",
+    "revealNames": "Enthülle 2 Namen pro Woche",
+    "week": "Woche",
+    "continue": "Fortsetzen",
+    "maybeLater": "Vielleicht später",
+    "resurringBillingCancelAnytime": "Wiederkehrende Abrechnung. Jederzeit kündbar.",
+    "paymentwillCharged": "Ihre Zahlung wird dem iTunes-Konto belastet und Ihr Abonnement verlängert sich automatisch um",
+    "untillYouCancel": "bis Sie in den iTunes Store-Einstellungen kündigen. Indem Sie auf Entsperren tippen, stimmen Sie Teams und der automatischen Verlängerung zu."
+  },
+  "about": {
+    "howItWorks": "Wie es funktioniert",
+    "faq": "FAQ",
+    "shareFeedback": "Feedback teilen",
+    "getHelp": "Hilfe bekommen",
+    "safetyCenter": "Sicherheitszentrum",
+    "addMyschool": "Meine Schule zu meinem Profil hinzufügen",
+    "changeGrade": "Ändere meine Note",
+    "changeName": "Ändere meinen Namen",
+    "changeGender": "Ändere mein Geschlecht",
+    "deleteAccount": "Mein Konto löschen",
+    "purchaseGodMode": "Kauf- und Gottmodus",
+    "reportBug": "Melde einen technischen Fehler",
+    "somethingElse": "Etwas anderes"
+  },
+  "shop": {
+    "balance": "DEIN KONTOSTAND",
+    "ShopTitle": "Erhöhen Sie Ihren Namen in Umfragen",
+    "ShopMemberText": "Verwenden Sie Münzen, um in Umfragen hervorgehoben zu werden",
+    "putNameOnCrushPoll": "Geben Sie Ihren Namen in die Umfrage Ihres Schwarms ein",
+    "getNameRandomPoll": "Holen Sie sich Ihren Namen in 3 zufälligen Umfragen",
+    "howGetMoreCoin": "Wie bekomme ich mehr Münzen?",
+    "answerPollsAboutFriendsWin": "Beantworten Sie Umfragen über Ihren Freund, um Münzen zu gewinnen."
+  },
+  "friendList": {
+    "selectFriend": "Wählen Sie einen Freund aus, um Ihren Namen zu seinen Umfragen hinzuzufügen"
+  },
+  "deleteAccount": {
+    "deleteAccount": "Konto löschen",
+    "accountHeadOne": "Bist du sicher, dass du das willst",
+    "accountHeadTwo": "Lösche deinen Account?",
+    "descriptionOne": "Alle Kontoinformationen werden gelöscht,",
+    "descriptionTwo": "einschließlich Freunde, Flammen und Münzen.",
+    "this": "Das",
+    "cannot": "kann nicht",
+    "undone": "rückgängig gemacht oder wiederhergestellt werden.",
+    "safetyOrPrivacy": "Sicherheits- oder Datenschutzbedenken",
+    "newAccount": "Ich möchte ein neues Konto erstellen",
+    "dontUse": "Ich benutze kein Licht mehr",
+    "howToUse": "Ich weiß nicht, wie ich es benutzen soll",
+    "otherReason": "Anderer Grund",
+    "deletion": "Fahren Sie mit dem Löschen fort",
+    "notNow": "Nicht jetzt"
+  },
+  "Success": {
+    "success": "Download erfolgreich."
+  },
+  "Fail": {
+    "fail": "Download fehlgeschlagen."
+  },
+  "recoverAccount": {
+    "notRecoverAfterOneDay": "Ihre Daten werden gelöscht. Ihr Konto kann nach 24 Stunden nicht wiederhergestellt werden.",
+    "youMayReceiveNotification": "Sie können bis zu einer Stunde lang Abstimmungsbenachrichtigungen von alten Umfragen erhalten, während Ihr Konto gelöscht wird.",
+    "WantToKeepAccount": "Ich möchte mein Konto behalten",
+    "yourAccountIs": "Ihr Konto ist",
+    "nowDeactivated": "jetzt deaktiviert"
+  },
+  "info": {
+    "fnameFindtoAdd": "Dein Name hilft deinen Freunden, dich auf LIT zu finden und hinzuzufügen.",
+    "useForRecog": "Verwenden Sie einen Namen, den Ihre Freunde erkennen können.",
+    "addGenderToPoll": "Das Hinzufügen Ihres Geschlechts hilft bei der Erstellung Ihrer Umfragen",
+    "seeWhoLikeOnLit": "Sehen Sie, wer Sie auf LIT mag",
+    "helpToFindSchool": "Ihre Note hilft Ihnen, eine Schule zu finden, der Sie beitreten können",
+    "gradeChangeOnce": "Ihre Note kann nur einmal geändert werden",
+    "addClassmates": "Wenn Sie Ihre Schule hinzufügen, können Sie Klassenkameraden auf LIT hinzufügen",
+    "findFriend": "Wählen Sie die richtige Schule, damit Sie Ihre Freunde finden können"
+  },
+  "noInboxItem": {
+    "fromTheGasTeam": "Vom Lit-Team",
+    "message": "Ein Mädchen in der 9. Klasse hat dich ausgewählt",
+    "thisIsYourInbox": "Dies ist Ihr Posteingang",
+    "whenPeoplePick": "Wenn Leute Sie auswählen, erhalten Sie hier eine Nachricht.",
+    "tapAnywhere": "Tippen Sie zum Schließen auf eine beliebige Stelle"
+  }
+}

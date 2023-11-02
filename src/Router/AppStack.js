@@ -14,6 +14,7 @@ import Collection from '../MainFlow/Collection/Collection';
 import Auction from '../MainFlow/Auction/Auction';
 import Profile from '../MainFlow/Profile/Profile';
 import Cart from '../MainFlow/Cart/Cart';
+import LanguageScreen from '../LanguageScreen/LanguageScreen';
 
 
 
@@ -24,6 +25,8 @@ import Svg, { Circle, Path } from "react-native-svg";
 import QRCode from '../MainFlow/QRCode/QRCode';
 import Details from '../MainFlow/Home/Details/Details';
 import Address from '../Address/Address'
+import PaymentMethod from '../PaymentMethod/PaymentMethod';
+import Order from '../MainFlow/Order/Order';
 
 
 // Main Navigation Flow
@@ -260,9 +263,36 @@ export default function AppStack(props) {
        options={{
         headerShown: false,
       }}
+        name={ScreenName.PaymentMethod}
+        key={ScreenName.PaymentMethod}
+        component={PaymentMethod}
+        initial
+      />
+       <Stack.Screen
+       options={{
+        headerShown: false,
+      }}
         name={ScreenName.Cart}
         key={ScreenName.Cart}
         component={Cart}
+        initial
+      />
+       <Stack.Screen
+       options={{
+        headerShown: false,
+      }}
+        name={ScreenName.Order}
+        key={ScreenName.Order}
+        component={Order}
+        initial
+      />
+       <Stack.Screen
+       options={{
+        headerShown: false,
+      }}
+        name={ScreenName.LanguageScreen}
+        key={ScreenName.LanguageScreen}
+        component={LanguageScreen}
         initial
       />
         

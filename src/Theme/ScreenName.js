@@ -20,5 +20,8 @@ export default {
   QRCode: 'QRCode',
   Details: 'Details',
   Cart: 'Cart',
-  Address: 'Address'
+  Address: 'Address',
+  PaymentMethod: 'PaymentMethod',
+  Order: 'Order',
+  LanguageScreen: 'LanguageScreen'
 };

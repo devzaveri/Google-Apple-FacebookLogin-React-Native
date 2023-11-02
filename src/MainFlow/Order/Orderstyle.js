@@ -1,144 +1,161 @@
-import {View} from 'react-native';
 import styled from 'styled-components/native';
+import {Colors, Responsive, Fonts, Images} from '../../Theme';
+import { colors } from 'react-native-elements';
 
-import { Responsive,Colors } from "../../../Theme";
-import {strings} from '../../../Theme/Resource/language/i18n';
+export const HeaderMainiView = styled.View`
+  flex-direction: row;
+  height: 50px;
+`;
+export const BackbtnView = styled.TouchableOpacity`
+  flex: 0.1;
+  justify-content: center;
+  padding-left: 10px;
+`;
+export const BackBtnImg = styled.Image`
+  height: 15px;
+  width: 15px;
+`;
+export const TitleView = styled.View`
+  flex: 1;
 
-export const MainViewcontainer = styled.View`
-
-/* height: ${Responsive.heightPercentageToDP(90)}px; */
-background: #fff;
-`
-
-export const HIMainView = styled.View`
-height: ${Responsive.heightPercentageToDP(65)}px;
-border-bottom-left-radius: 25px;
-border-bottom-right-radius: 25px;
-`
-export const MainImgBackground = styled.ImageBackground`
-height: 100%;
-width: 100%;
-
-`
-export const BackView = styled.TouchableOpacity`
-height: 30px;
-width: 30px;
-background: #fff;
-top: 40px;
-left: 20px;
-border-radius: 75px;
-justify-content: center;
-align-items: center;
-`
-export const BackImg = styled.Image`
-height: 9px;
-width: 9px;
-`
-export const LiveView = styled.View`
-height: 30px;
-width: 30px;
-border-radius: 75px;
-background: #fff;
-top: 40px;
-right: 20px;
-position: absolute;
-justify-content: center;
-align-items: center;
-`
-export const LikeImg = styled.Image`
-height: 16px;
-width: 16px;
-`
-export const DMainView = styled.View`
-padding: 20px;
-`
-export const FirstDetailsView = styled.View`
-flex-direction: row;
-height: 50px;
-`
-export const NameView = styled.View`
+  justify-content: center;
+  align-items: center;
+`;
+export const TitleText = styled.Text`
+  font-size: 18px;
+  font-weight: 400;
+`;
+export const MenuView = styled.TouchableOpacity`
+  flex: 0.1;
+  padding-right: 10px;
+  justify-content: center;
+  align-items: flex-end;
+`;
+export const MainView = styled.View`
 flex: 1;
+height: ${Responsive.heightPercentageToDP(100)}px;
+padding-top: 30px;
+`
+export const AddressText = styled.Text`
+font-size: 16px;
+font-weight: 400;
+`
+export const AddressDetailsView = styled.View`
+padding-top: 20px;
+padding-bottom: 20px;
+padding-right: 10px;
+padding-left: 20px;
+background: ${Colors.textInput};
+margin-top: 10px;
+`
+export const FirstAdderss = styled.Text`
+font-size: 14px;
+`
+export const SecondAddress = styled.Text`
+font-size: 14px;
+`
+export const ThirdAdderss = styled.Text`
+font-size: 14px;
+`
+export const MainItemView = styled.View`
+margin-top: 20px;
+`
+export const ItemText = styled.Text`
+font-size: 16px;
+font-weight: 400;
+`
+export const ItemContainer = styled.View`
+/* padding-top: 10px; */
 
 `
-export const PriceView = styled.View`
-justify-content: center;
-align-items: center;
+export const ItemImg = styled.Image`
+/* height: 78px;
+width: 78px; */
+height: ${Responsive.heightPercentageToDP(9)}px;
+width: ${Responsive.widthPercentageToDP(20)}px;
+border-radius: 15px;
 `
-
-export const ProductnameView = styled.Text`
-font-size: 24px;
+export const ItemDetailsView = styled.View`
+padding-left: 20px;
+`
+export const ItemNameText = styled.Text`
+font-size: 12px;
 font-weight: 700;
+`
+export const ItemDetailsText = styled.Text`
+font-size: 12px;
+font-weight: 400;
 color: ${Colors.OrGray};
+margin-top: 5px;
 `
-export const ProductType = styled.Text`
-color: #AAAAAA;
-font-size: 14px;
-font-weight: 400;
-`
-
-export const PriceText = styled.Text`
-color: #FF7465;
-font-size: 24px;
+export const ItemPriceText = styled.Text`
+font-size: 16px;
 font-weight: 700;
+color: ${Colors.Bardil};
+margin-top: 5px;
 `
-
-export const ProductdetailsView = styled.View`
-padding: 20px;
-
-`
-export const ProductDetailsText = styled.Text`
-font-size: 14px;
-font-weight: 400;
-color: #757575;
-`
-export const FooterMainView = styled.View`
-background: #fff;
-height: ${Responsive.heightPercentageToDP(12)}px;
-width: 100%;
-justify-content: center;
-align-items: center;
-/* flex: 1; */
-`
-export const FInnerView = styled.View`
-flex-direction: row;
-height: 100px;
-`
-export const FCartView = styled.View`
-justify-content: center;
-align-items: center;
-flex: 0.35;
-
-`
-export const FByNowView = styled.View`
+export const CountView = styled.View`
 flex: 1;
+align-items: center;
+justify-content: flex-end;
+flex-direction: row;
+`
+export const CloseBTN = styled.TouchableOpacity`
+
+`
+export const CloseImg = styled.Image`
+height: 18px;
+width: 18px;
+`
+export const CountText = styled.Text`
+font-size: 18px;
+font-weight: 400;
+color: ${Colors.OrGray};
+margin-left: 10px;
+margin-right: 10px;
+`
+export const PaymentContainer = styled.View`
+margin-top: 30px;
+`
+export const PaymentText = styled.Text`
+font-size: 16px;
+font-weight: 400;
+`
+export const PaymentImg = styled.Image`
+height: 40px;
+width: 100px;
+margin-top: 20px;
+`
+export const ShippingContainer = styled.View`
+margin-top: 30px;
+`
+export const ShippingText = styled.Text`
+font-size: 16px;
+font-weight: 400;
+`
+export const ShippingImg = styled.Image`
+height: 40px;
+width: 100px;
+margin-top: 20px;
+`
+export const EmptyLFMainView = styled.View`
+height: ${Responsive.heightPercentageToDP(10)}px;
+width: ${Responsive.widthPercentageToDP(90)}px;
 justify-content: center;
 align-items: center;
 `
-export const FCartinnerCircleView = styled.TouchableOpacity`
-height: 64px;
-width: 64px;
-background: #F7F8FB;
-border-radius: 75px;
-justify-content: center;
-align-items: center;
-`
-export const CartImg = styled.Image`
-height: 20px;
-width: 20px;
-`
-export const FButInnerView = styled.TouchableOpacity`
-height: 64px;
-width: 80%;
-background: #FF7465;
+export const ShopNowBtn = styled.TouchableOpacity`
+height: ${Responsive.heightPercentageToDP(7.5)}px;
+width: ${Responsive.widthPercentageToDP(80)}px;
+background: ${Colors.Bardil};
 border-radius: 30px;
 justify-content: center;
 align-items: center;
 `
-export const FBuyText = styled.Text`
-font-size: 16px;
+export const ShopNowText = styled.Text`
+font-size: 18px;
 font-weight: 400;
-color: #fff;
-
+color: ${Colors.white};
 `
 export const SheetMainView = styled.View`
 padding: 20px;
@@ -161,9 +178,8 @@ export const SizeFlatlist = styled.FlatList`
 
 `
 export const SizeButton = styled.TouchableOpacity`
-/* height: 24px;
-width: 24px; */
-padding: 10px;
+height: 24px;
+width: 24px;
 margin-left: 10px;
 background: ${props => props.selected ? "#FF7465" : "#fff"};
 justify-content: center;

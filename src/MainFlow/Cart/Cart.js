@@ -45,9 +45,14 @@ import {
   ShopNowText,
 } from './CartStyle';
 import React, {useEffect, useState} from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text, ScrollView, Alert} from 'react-native';
+
 import {useSelector, useDispatch} from 'react-redux';
+import {removeToCartMain, addCartItemMain} from '../../redux/action';
+import I18n, {strings} from '../../Theme/Resource/language/i18n';
+
 import DashedLine from 'react-native-dashed-line';
+import {localize} from '../../Theme/Constants'
 
 import {Colors, Responsive, Fonts, Images} from '../../Theme';
 
@@ -56,22 +61,20 @@ const Cart = ({navigation}) => {
   const [selecteditem, setSelectedItem] = useState([]);
   const [tPrice, setTPrice] = useState(0);
   const cartData = useSelector(state => state.reducer);
-  const [helloItem , sethelloItem] = useState(null)
+  const [itemCount, setItemCount] = useState(1);
+  const dispatch = useDispatch();
+
+  console.log(localize('cart.shoppingNow'));
 
   useEffect(() => {
     setCartLenth(cartData);
     TotalPriceCountFunc();
-  }, [cartData, selecteditem]);
+  }, [cartData, selecteditem , strings]);
   const GetSelectedItem = (index, item) => {
     const updatedList = selecteditem.includes(item)
       ? selecteditem.filter(cartLenth => cartLenth !== item)
       : [...selecteditem, item];
     setSelectedItem(updatedList);
-    // console.log(JSON.stringify(selecteditem,null,2));
-    // const isCheckedItem = updatedList.includes(item)
-    //   ? updatedList.filter(item => (item.isChacked === false ? true : false))
-    //   : [...selecteditem, item];
-    // setSelectedItem(updatedList);
   };
 
   const TotalPriceCountFunc = () => {
@@ -91,7 +94,31 @@ const Cart = ({navigation}) => {
       console.log('elsePart ===>', Data);
     }
   };
-  
+
+  const AddItemCount = () => {
+    setItemCount(itemCount + 1);
+  };
+  const MinusItemCount = index => {
+    if (itemCount <= 1) {
+      Alert.alert('Remove Item', 'Do you want to remove this item?', [
+        {text: 'NO', onPress: () => console.log('No'), style: 'cancel'},
+        {text: 'YES', onPress: () => RemoveItemFunc(index)},
+      ]);
+    } else {
+      setItemCount(itemCount - 1);
+    }
+    console.log('Hello');
+  };
+
+  const RemoveItemFunc = index => {
+    dispatch(removeToCartMain(index));
+    // const total = selecteditem.reduce((acc, price) => acc - price.price, 0);
+    // setTPrice(total);
+    console.log(
+      'kdgldkj',
+      selecteditem.reduce((acc, price) => acc - price.price, 0),
+    );
+  };
 
   const HeaderViewFunc = () => {
     return (
@@ -133,11 +160,11 @@ const Cart = ({navigation}) => {
                   </ProductDetailsView>
                 </ContentView>
                 <CountView>
-                  <MinusBtn>
+                  <MinusBtn onPress={item => MinusItemCount(index)}>
                     <MinusImg resizeMode="contain" source={Images.minus} />
                   </MinusBtn>
-                  <CountText>1</CountText>
-                  <PlusBtn>
+                  <CountText>{itemCount}</CountText>
+                  <PlusBtn onPress={AddItemCount}>
                     <PlusImg source={Images.plus} />
                   </PlusBtn>
                 </CountView>
@@ -152,9 +179,9 @@ const Cart = ({navigation}) => {
     return (
       <EmptyCartView>
         <ECImage source={Images.emptyCart} resizeMode="contain" />
-        <EmptyCartTitleText>Empty Basket</EmptyCartTitleText>
+        <EmptyCartTitleText>{localize('emptyBasket')}</EmptyCartTitleText>
         <ECDetailsText>
-          Your basket is still empty, browse the attractive promos from bardeal
+        {localize('emptyBasketDetails')}
         </ECDetailsText>
       </EmptyCartView>
     );
@@ -165,7 +192,9 @@ const Cart = ({navigation}) => {
         <SelectView>
           <SelectText>Select All</SelectText>
           <SelectCheckOuterView>
-            <SelectCheckView data={selecteditem.length === cartData.length} onPress={AllSelectFunc}></SelectCheckView>
+            <SelectCheckView
+              data={selecteditem.length === cartData.length}
+              onPress={AllSelectFunc}></SelectCheckView>
           </SelectCheckOuterView>
         </SelectView>
         <DashLineView>
@@ -183,20 +212,20 @@ const Cart = ({navigation}) => {
           </PriceOuterView>
         </TotalPaymentView>
         <CheckOutOutterView>
-          {
-            selecteditem.length !== 0 ? (
-              <CheckoutView getBGcolor={selecteditem.length} onPress={()=>{
-                navigation.navigate('Address')
-              }} >
+          {selecteditem.length !== 0 ? (
+            <CheckoutView
+              getBGcolor={selecteditem.length}
+              onPress={() => {
+                navigation.navigate('Address'),
+                  dispatch(addCartItemMain(selecteditem));
+              }}>
               <CheckoutText>Checkout</CheckoutText>
             </CheckoutView>
-            ) : (
-              <CheckoutView getBGcolor={selecteditem.length} disabled={true} >
+          ) : (
+            <CheckoutView getBGcolor={selecteditem.length} disabled={true}>
               <CheckoutText>Checkout</CheckoutText>
             </CheckoutView>
-            )
-          }
-         
+          )}
         </CheckOutOutterView>
       </FMainContainer>
     );
@@ -208,7 +237,7 @@ const Cart = ({navigation}) => {
           onPress={() => {
             navigation.navigate('Home');
           }}>
-          <ShopNowText>Shopping Now</ShopNowText>
+          <ShopNowText>{localize('shoppingNow')}</ShopNowText>
         </ShopNowBtn>
       </EmptyLFMainView>
     );

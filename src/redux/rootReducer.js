@@ -1,6 +1,9 @@
 import {combineReducers} from 'redux';
-import {reducer} from './reducer'
+import {reducer , reduce2 , addressReducer , addLanguage} from './reducer'
 
 export default combineReducers({
-    reducer
+    reducer,
+    reduce2,
+    addressReducer,
+    addLanguage
 })

@@ -58,6 +58,7 @@ target 'DPLogistic' do
   target 'DPLogisticTests' do
     inherit! :complete
     # Pods for testing
+    pod 'RNI18n', :path => '../node_modules/react-native-i18n'
     use_frameworks! :linkage => :static
   end
 

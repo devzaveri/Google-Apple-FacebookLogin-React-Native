@@ -21,7 +21,13 @@ const Images = {
   menu: require('../icon/Menu.png'),
   minus: require('../icon/Vector.png'),
   plus: require("../icon/PlusCount.png"),
-  emptyCart: require("../icon/Cart.png")
+  emptyCart: require("../icon/Cart.png"),
+  googleIcon: require('../icon/googleIcon.png'),
+  applepay: require('../icon/applepay.png'),
+  FeedEx: require('../icon/FeedEx.png'),
+  DHLexpress: require('../icon/DHLexpress.png'),
+  visa: require('../icon/visa.png'),
+  close: require('../icon/close.png')
 };
 
 export default Images;

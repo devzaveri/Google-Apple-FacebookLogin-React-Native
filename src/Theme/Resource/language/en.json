@@ -1,0 +1,21 @@
+{
+  "app": {
+    "appName": "LIT",
+    "welcome": "Welcome to "
+  },
+  "home":{
+    "all": "All",
+    "category": "Category",
+    "top": "Top",
+    "recomendation": "Recomendation"
+  },
+  "details": {
+    "buyNow": "Buy Now"
+  },
+  "cart": {
+    "emptyBasket": "Empty Basket",
+    "emptyBasketDetails": "Your basket is still empty, browse the attractive promos from bardeal",
+    "shoppingNow": "Shopping Now"
+    
+  }
+}

@@ -58,12 +58,14 @@ import {Rating} from 'react-native-ratings';
 import RBSheet, {BottomSheetScrollView} from 'react-native-raw-bottom-sheet';
 import DashedLine from 'react-native-dashed-line';
 import {color} from 'react-native-elements/dist/helpers';
+import I18n, {strings} from '../../../Theme/Resource/language/i18n';
 
 import ProductData from '../../../Theme/ProductData';
 import Size from '../../../Theme/Productsize';
 import Color from '../../../Theme/ProductColor';
 import {useDispatch, useSelector} from 'react-redux';
 import { addToCartMain , removeToCartMain } from '../../../redux/action';
+import {localize} from '../../../Theme/Constants'
 
 const Details = ({navigation, route}) => {
   const receivedData = route.params?.ItemName;
@@ -75,7 +77,7 @@ const Details = ({navigation, route}) => {
   const cartItem = useSelector(state => state.reducer);
   const dispatch = useDispatch();
   const Data = ProductData.find(item => item.name === receivedData);
-
+// console.log(strings('details.buyNow'));
   //item add remove function
   const PlusCountFunc = () => {
     setCount(count + 1);
@@ -90,6 +92,7 @@ const Details = ({navigation, route}) => {
   };
 
   //onPress methods
+  
 
   const HeaderImageViewFunc = () => {
     return (
@@ -188,7 +191,7 @@ const Details = ({navigation, route}) => {
           </FCartView>
           <FByNowView>
             <FButInnerView onPress={() => refRBSheet.current.open()}>
-              <FBuyText>Buy Now</FBuyText>
+              <FBuyText>{localize('buyNow')}</FBuyText>
             </FButInnerView>
             <RBSheet
               ref={refRBSheet}
@@ -224,7 +227,7 @@ const Details = ({navigation, route}) => {
       <ScrollView>
         <SheetMainView>
           <SizeView>
-            <SizeText>Size</SizeText>
+            <SizeText>{localize('size')}</SizeText>
             <SizeTypeView>
               <SizeFlatlist
                 data={Size}
@@ -250,7 +253,7 @@ const Details = ({navigation, route}) => {
             </SizeTypeView>
           </SizeView>
           <ColorView>
-            <ColorText>Color</ColorText>
+            <ColorText>{localize('color')}</ColorText>
             <ColorFlatlist
               data={Color}
               horizontal={true}
@@ -267,7 +270,7 @@ const Details = ({navigation, route}) => {
               }}></ColorFlatlist>
           </ColorView>
           <TotalView>
-            <TotalText>Total</TotalText>
+            <TotalText>{localize('total')}</TotalText>
             <TotleCountView>
               <PlusButton onPress={MinusCountFunc}>
                 <MinusImage
@@ -293,7 +296,7 @@ const Details = ({navigation, route}) => {
             />
           </DashLineView>
           <TPView>
-            <TotalPaymentText>Total Payment</TotalPaymentText>
+            <TotalPaymentText>{localize("totalPayment")}</TotalPaymentText>
             <TPAmountView>
               <TPamountText>${Data.price}</TPamountText>
             </TPAmountView>
@@ -304,7 +307,7 @@ const Details = ({navigation, route}) => {
               dispatch(addToCartMain(Data));
               
             }}>
-              <PaymentTetx>Add To Cart</PaymentTetx>
+              <PaymentTetx>{localize("addToCart")}</PaymentTetx>
             </PaymentButton>
           </PaymentBTNView>
         </SheetMainView>
@@ -317,7 +320,7 @@ const Details = ({navigation, route}) => {
       <ScrollView>
         <SheetMainView>
           <SizeView>
-            <SizeText>Size</SizeText>
+            <SizeText>{localize('size')}</SizeText>
             <SizeTypeView>
               <SizeFlatlist
                 data={Size}
@@ -343,7 +346,7 @@ const Details = ({navigation, route}) => {
             </SizeTypeView>
           </SizeView>
           <ColorView>
-            <ColorText>Color</ColorText>
+            <ColorText>{localize('color')}</ColorText>
             <ColorFlatlist
               data={Color}
               horizontal={true}
@@ -360,7 +363,7 @@ const Details = ({navigation, route}) => {
               }}></ColorFlatlist>
           </ColorView>
           <TotalView>
-            <TotalText>Total</TotalText>
+            <TotalText>{localize('total')}</TotalText>
             <TotleCountView>
               <PlusButton onPress={MinusCountFunc}>
                 <MinusImage
@@ -386,14 +389,14 @@ const Details = ({navigation, route}) => {
             />
           </DashLineView>
           <TPView>
-            <TotalPaymentText>Total Payment</TotalPaymentText>
+            <TotalPaymentText>{localize('totalPayment')}</TotalPaymentText>
             <TPAmountView>
               <TPamountText>${Data.price}</TPamountText>
             </TPAmountView>
           </TPView>
           <PaymentBTNView>
             <PaymentButton>
-              <PaymentTetx>Checkout</PaymentTetx>
+              <PaymentTetx>{localize('checkout')}</PaymentTetx>
             </PaymentButton>
           </PaymentBTNView>
         </SheetMainView>

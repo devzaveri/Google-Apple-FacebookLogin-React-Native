@@ -29,19 +29,30 @@ import {
 import {SearchBar, Icon} from 'react-native-elements';
 import ProductData from '../../Theme/ProductData';
 
+import {useDispatch, useSelector} from 'react-redux';
+import { addLanguageMain } from '../redux/action';
+import Category from '../../Theme/Category';
+import I18n, {strings} from '../../Theme/Resource/language/i18n';
+import Constants from '../../Theme/Constants';
+import {localize} from '../../Theme/Constants'
 export default function Home({navigation}) {
   const [username, getUserName] = useState('');
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
-  const Data = ['All', 'Category', 'Top', 'Recomendation'];
+
+  console.log("strings('all')==>" , localize('all'));
 
   useEffect(() => {
     fetchdata();
-  }, []);
+    
+
+  }, [Category]);
   async function fetchdata() {
     const GetData = await AsyncStorage.getItem('Data');
     const DataArr = JSON.parse(GetData);
     const name = DataArr.name;
     getUserName(name);
+
+    console.log("LANG",Constants.commonConstant.currentLanguage);
   }
 
   const remove = async () => {
@@ -69,7 +80,9 @@ export default function Home({navigation}) {
           <SearchTextInput placeholder="Find your product"></SearchTextInput>
         </SearchView>
 
-        <NotifView>
+        <NotifView onPress={()=>{
+          navigation.navigate('LanguageScreen')
+        }}>
           <NotifInnerview>
             <Image
               source={require('../../icon/Notification.png')}
@@ -107,7 +120,8 @@ export default function Home({navigation}) {
   const CatagaresFunc = () => {
     return (
       <CView
-        data={Data}
+      showsHorizontalScrollIndicator={false}
+        data={Category}
         horizontal={true}
         renderItem={({item, index}) => {
           return (

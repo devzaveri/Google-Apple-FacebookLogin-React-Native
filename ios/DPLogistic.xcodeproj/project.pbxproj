@@ -16,6 +16,7 @@
 		CA38A9558E375404659FE838 /* Pods_DPLogistic_DPLogisticTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7739E498102673762B236EE8 /* Pods_DPLogistic_DPLogisticTests.framework */; };
 		D70804D02AEF7C580002E870 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = D70804CF2AEF7C580002E870 /* Fonts */; };
 		D72B5FBD2AE003DE002300EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D72B5FBC2AE003DE002300EF /* GoogleService-Info.plist */; };
+		D78E5A9C2AF22CE600E403CD /* libRNI18n-library.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D78E5A9B2AF22CE600E403CD /* libRNI18n-library.a */; };
 		D79147482AE7A18100B12544 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D79147472AE7A18100B12544 /* Bolts.framework */; };
 		D791474A2AE7A1B300B12544 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D79147492AE7A1B300B12544 /* FBSDKCoreKit.framework */; };
 		D791474C2AE7A24600B12544 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D791474B2AE7A24600B12544 /* FBSDKLoginKit.framework */; };
@@ -52,6 +53,7 @@
 		D70804CF2AEF7C580002E870 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
 		D72B5FBC2AE003DE002300EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D73044B92AE0F11200737F82 /* DPLogistic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DPLogistic.entitlements; path = DPLogistic/DPLogistic.entitlements; sourceTree = "<group>"; };
+		D78E5A9B2AF22CE600E403CD /* libRNI18n-library.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libRNI18n-library.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D79147472AE7A18100B12544 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Downloads/facebook-ios-sdk-current/Bolts.framework"; sourceTree = "<group>"; };
 		D79147492AE7A1B300B12544 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../Downloads/facebook-ios-sdk-current/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		D791474B2AE7A24600B12544 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../Downloads/facebook-ios-sdk-current/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D78E5A9C2AF22CE600E403CD /* libRNI18n-library.a in Frameworks */,
 				02063F063E77084742166E5D /* libPods-DPLogistic.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +126,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D78E5A9B2AF22CE600E403CD /* libRNI18n-library.a */,
 				D791474D2AE7A25000B12544 /* FBSDKShareKit.framework */,
 				D791474B2AE7A24600B12544 /* FBSDKLoginKit.framework */,
 				D79147492AE7A1B300B12544 /* FBSDKCoreKit.framework */,
@@ -247,6 +251,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			packageReferences = (
